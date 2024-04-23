@@ -3,6 +3,7 @@ import { Redis } from 'ioredis'
 import pino, { type Logger } from 'pino'
 import { baseSepolia, optimismSepolia, sepolia, zoraSepolia } from 'viem/chains'
 
+import { createApiKeyServiceClient } from '@/apiKeyService/createApiKeyServiceClient'
 import { fraxtalSepolia } from '@/constants/fraxtalSepolia'
 import { envVars } from '@/envVars'
 import { initializeApiServer } from '@/initializeApiServer'
@@ -25,6 +26,8 @@ export class ProxyService {
     const redisClient = new Redis(envVars.REDIS_URL)
 
     const logger = pino()
+
+    const apiKeyServiceClient = createApiKeyServiceClient({})
 
     const paymasterConfigs = [
       getAlchemyPaymasterConfig({

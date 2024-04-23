@@ -12,3 +12,5 @@ export const createApiKeyServiceClient = ({ url }: { url: string }) => {
     ],
   })
 }
+
+export type ApiKeyServiceClient = ReturnType<typeof createApiKeyServiceClient>

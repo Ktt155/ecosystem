@@ -12,6 +12,7 @@ import morgan from 'morgan'
 import { type Logger } from 'pino'
 
 import { getV1ApiRoute, V1_API_BASE_PATH } from '@/api/getV1ApiRoute'
+import type { ApiKeyServiceClient } from '@/apiKeyService/createApiKeyServiceClient'
 import { getPromBaseMetrics } from '@/middlewares/getPromBaseMetrics'
 import { getRateLimiter } from '@/middlewares/getRateLimiter'
 import type { Metrics } from '@/monitoring/metrics'
@@ -19,11 +20,13 @@ import type { PaymasterConfig } from '@/paymaster/types'
 
 export const initializeApiServer = async ({
   redisClient,
+  apiKeyServiceClient,
   paymasterConfigs,
   metrics,
   logger,
 }: {
   redisClient: Redis
+  apiKeyServiceClient: ApiKeyServiceClient
   paymasterConfigs: PaymasterConfig[]
   metrics: Metrics
   logger: Logger
