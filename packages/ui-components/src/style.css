@@ -25,7 +25,7 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 217, 90%, 69%;
-    --radius: 1rem;
+    --radius: 0.5rem;
   }
 
   .dark {
